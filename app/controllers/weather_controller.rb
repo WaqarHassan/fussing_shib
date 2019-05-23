@@ -31,6 +31,8 @@ class WeatherController < ApplicationController
   end
 
   def destroy
+    Weather.joins(:locations).where("locations.lat = ? AND location.lon = ? and start_date = ? and end_date = ?", params[:lat] , params[:lon] , params[:start_data] , params[:end_date]).destroy_all
+    render json: {} , status: 200
 
   end
   # def get_all
