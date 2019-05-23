@@ -54,4 +54,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  post "/weather" => "weather#create"
+  get "/weather" => "weather#get_weather_by_date"
+  get "/weather" => "weather#get_weather_by_location"
+  delete "/erase" => "weather#destroy"
+  # get "/weather" => "weather#get_all"
 end
