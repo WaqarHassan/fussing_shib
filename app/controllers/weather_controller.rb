@@ -23,11 +23,11 @@ class WeatherController < ApplicationController
   end
 
   def get_weather_by_date
-    Weather.where(data: params[:data])
+     render json: Weather.where(date: params[:date]) , status: 200
   end
 
   def get_weather_by_location
-
+    render json: Weather.joins(:locations).where("locations.lat = ? AND location.lon = ?", params[:lat] , params[:lon]), status: 200
   end
 
   def destroy
